@@ -69,6 +69,10 @@ paths:
           description: "Invalid ID supplied"
         "404":
           description: "Image not found"
+        "200":
+          description: "OK"
+          schema:
+            $ref: '#/definitions/ImageResponse'
       security:
       - imagestore_auth:
         - "write:image"
@@ -205,6 +209,18 @@ definitions:
         example: "successfull"
       data:
         $ref: "#/definitions/Data"
+  ImageResponse:
+    type: "object"
+    properties:
+      code:
+        type: "string"
+        example: "200"
+      type:
+        type: "string"
+        example: "OK"
+      message:
+        type: "string"
+        example: "successfull"
   Data:
     type: "object"
     properties:
